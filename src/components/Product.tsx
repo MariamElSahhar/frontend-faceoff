@@ -11,8 +11,15 @@ const images = [
 	"/images/croissant-thumb1.jpg",
 	"/images/croissant-thumb2.jpg",
 ];
+interface ProductSectionProps {
+	cartCount: number;
+	setCartCount: (count: number) => void;
+}
 
-export default function ProductSection() {
+export default function ProductSection({
+	cartCount,
+	setCartCount,
+}: ProductSectionProps) {
 	const [quantity, setQuantity] = useState(1);
 	const [showIngredients, setShowIngredients] = useState(false);
 	const [currentImage, setCurrentImage] = useState(0);
@@ -92,7 +99,9 @@ export default function ProductSection() {
 							</button>
 							<span className="px-3">{quantity}</span>
 							<button
-								onClick={() => setQuantity(quantity + 1)}
+								onClick={() => {
+									setQuantity(quantity + 1);
+								}}
 								className="px-2 py-1 bg-purple-300 border-2 border-purple-500 hover:bg-purple-400 cursor-pointer"
 							>
 								+
@@ -103,9 +112,7 @@ export default function ProductSection() {
 						<div className="mt-4 flex flex-col gap-2">
 							<button
 								onClick={() =>
-									alert(
-										`Added ${quantity} croissant(s) to cart!`
-									)
+									setCartCount(cartCount + quantity)
 								}
 								className="bg-purple-300 border-3 border-purple-500 px-4 py-2 uppercase font-bold hover:bg-purple-400 transition active:scale-95 w-full cursor-pointer"
 							>
