@@ -25,6 +25,8 @@ body,
 }
 
 @theme {
+	--font-mono: "Press Start 2P", "ui-monospace", "SFMono-Regular", "monospace";
+
 	--color-blue-50: #eff8ff;
 	--color-blue-100: #daeeff;
 	--color-blue-200: #bee1ff;

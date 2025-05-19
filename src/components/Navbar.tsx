@@ -1,3 +1,5 @@
+
+
 export default function Navbar() {
 	return (
 		<header className="w-full border-b-4 border-blue-400 text-gray-800 px-4 py-3 font-mono text-sm shadow-sm">
@@ -13,7 +15,7 @@ export default function Navbar() {
 					<a href="#" className="hover:underline">
 						Contact
 					</a>
-
+					
 				</nav>
 			</div>
 		</header>
