@@ -1,10 +1,14 @@
-import "./App.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ProductSection from "./components/Product";
 
 function App() {
 	return (
-		<>
-			<h1 className="text-blue-50">Hello world</h1>
-		</>
+		<main className="h-full w-full flex flex-col justify-between bg-blue-50">
+			<Navbar />
+			<ProductSection />
+			<Footer />
+		</main>
 	);
 }
 
