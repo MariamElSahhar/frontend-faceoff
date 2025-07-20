@@ -30,24 +30,21 @@ export default function ProductSection({
 		setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
 
 	return (
-		<section className="flex-grow flex flex-col gap-6 p-6 font-mono text-gray-800">
-			{/* Header */}
-			<h1 className="text-2xl uppercase border-b-4 border-blue-300 pb-2">
+		<section className="flex-grow flex flex-col gap-6 p-4 sm:p-6 font-mono text-gray-800">
+			<h1 className="text-xl sm:text-2xl uppercase border-b-4 border-blue-300 pb-2">
 				🥐 Croissant
 			</h1>
 
-			{/* Grid */}
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 				{/* Left Column */}
 				<div className="flex flex-col items-center">
-					{/* Browser-style window frame */}
 					<div className="w-full max-w-md border-4 border-orange-300 bg-white">
 						<div className="flex gap-2 bg-orange-200 p-1 border-b-4 border-orange-300">
 							<div className="w-3 h-3 rounded-full bg-red-400" />
 							<div className="w-3 h-3 rounded-full bg-yellow-400" />
 							<div className="w-3 h-3 rounded-full bg-green-400" />
 						</div>
-						<div className="relative h-[400px] w-full overflow-hidden bg-white">
+						<div className="relative h-[250px] sm:h-[350px] md:h-[400px] w-full overflow-hidden bg-white">
 							<img
 								src={images[currentImage]}
 								alt={`Croissant ${currentImage + 1}`}
@@ -56,19 +53,21 @@ export default function ProductSection({
 						</div>
 
 						{/* Image nav */}
-						<div className="flex justify-between items-center p-2 bg-orange-100">
+						<div className="flex justify-between items-center p-2 bg-orange-100 text-sm sm:text-base">
 							<button
 								onClick={prevImage}
-								className="hover:scale-105 transition"
+								className="hover:scale-110 transition p-1 sm:p-2"
+								aria-label="Previous image"
 							>
 								<ChevronLeft size={20} />
 							</button>
-							<span className="text-xs">
+							<span>
 								Image {currentImage + 1} of {images.length}
 							</span>
 							<button
 								onClick={nextImage}
-								className="hover:scale-105 transition"
+								className="hover:scale-110 transition p-1 sm:p-2"
+								aria-label="Next image"
 							>
 								<ChevronRight size={20} />
 							</button>
@@ -77,7 +76,7 @@ export default function ProductSection({
 				</div>
 
 				{/* Right Column */}
-				<div className="flex flex-col justify-between gap-4 w-100">
+				<div className="flex flex-col justify-between gap-4 w-full max-w-md mx-auto">
 					<div>
 						<h2 className="text-xl">Croissant</h2>
 						<p className="text-orange text-lg mt-1">7 AED</p>
@@ -118,14 +117,7 @@ export default function ProductSection({
 							>
 								Add {quantity} to Cart
 							</button>
-							<button
-								onClick={() =>
-									alert(
-										`Buying ${quantity} croissant(s) now!`
-									)
-								}
-								className="bg-orange-200 border-3 border-orange-400 px-4 py-2 uppercase font-bold hover:bg-orange-300 transition active:scale-95 w-full cursor-pointer"
-							>
+							<button className="bg-orange-200 border-3 border-orange-400 px-4 py-2 uppercase font-bold hover:bg-orange-300 transition active:scale-95 w-full cursor-pointer">
 								Buy Now
 							</button>
 						</div>
